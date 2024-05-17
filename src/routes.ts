@@ -18,4 +18,8 @@ routes.get("/balance", async (req: Request, res: Response) => {
   await transactionController.getCurrentBalance(req, res);
 });
 
+routes.post("/transaction", async (req: Request, res: Response) => {
+  await transactionController.createTransaction(req, res);
+});
+
 export default routes;

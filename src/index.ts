@@ -5,6 +5,7 @@ import routes from "./routes";
 const app = express();
 
 // Use the example route
+app.use(express.json());
 app.use("/", routes);
 
 // Start the server

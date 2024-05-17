@@ -1,5 +1,5 @@
 import TransactionRepository from "../repositories/TransactionRepository";
-import { Transaction } from "../db/schema/transaction";
+import { Transaction, NewTransaction } from "../db/schema/transaction";
 import { centsToReal } from "../utils/converts";
 
 class TransactionService {
@@ -10,8 +10,11 @@ class TransactionService {
   }
 
   async getAllTransactions(): Promise<Transaction[]> {
-    // Implement business logic to get all users
     return this.transactionRepository.findAll();
+  }
+
+  async createTransaction(transaction: NewTransaction): Promise<void> {
+    return this.transactionRepository.create(transaction);
   }
 
   async getCurrentBalance(): Promise<string> {
